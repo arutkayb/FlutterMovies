@@ -18,7 +18,6 @@ class Movie{
     movie.overview = movieJson["overview"];
     movie.releaseDate = movieJson["release_date"].toString();
 
-
     return movie;
   }
 }

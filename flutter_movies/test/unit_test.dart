@@ -10,7 +10,7 @@ import 'package:flutter_movies/model/remote/movie_db.dart';
 import 'package:flutter_movies/model/remote/plain_object/movie.dart';
 
 void main() {
-  test('Get popular movies test', () async {
+  test('Get movies from moviedb', () async {
     MovieDb movieDb = MovieDb();
     Future<List<Movie>> movies = movieDb.getPopularMovies();
     movies.then((List<Movie> m) {
