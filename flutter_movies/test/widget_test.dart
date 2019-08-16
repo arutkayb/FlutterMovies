@@ -5,26 +5,16 @@
 // gestures. You can also use WidgetTester to find child widgets in the widget
 // tree, read text, and verify that the values of widget properties are correct.
 
-import 'package:flutter/material.dart';
-import 'package:flutter_test/flutter_test.dart';
-
-import 'package:flutter_movies/main.dart';
+import 'package:test/test.dart';
+import 'package:flutter_movies/model/remote/movie_db.dart';
+import 'package:flutter_movies/model/remote/plain_object/movie.dart';
 
 void main() {
-  testWidgets('Counter increments smoke test', (WidgetTester tester) async {
-    // Build our app and trigger a frame.
-    await tester.pumpWidget(MyApp());
-
-    // Verify that our counter starts at 0.
-    expect(find.text('0'), findsOneWidget);
-    expect(find.text('1'), findsNothing);
-
-    // Tap the '+' icon and trigger a frame.
-    await tester.tap(find.byIcon(Icons.add));
-    await tester.pump();
-
-    // Verify that our counter has incremented.
-    expect(find.text('0'), findsNothing);
-    expect(find.text('1'), findsOneWidget);
+  test('Get popular movies test', () async {
+    MovieDb movieDb = MovieDb();
+    Future<List<Movie>> movies = movieDb.getPopularMovies();
+    movies.then((List<Movie> m) {
+      expect(true, m.length > 0);
+    });
   });
 }
