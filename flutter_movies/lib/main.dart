@@ -1,4 +1,9 @@
 import 'package:flutter/material.dart';
+import 'module/list_movies.dart';
+import 'common/widget/movie_card.dart';
+import 'model/remote/plain_object/movie.dart';
+
+
 
 void main() => runApp(MyApp());
 
@@ -19,6 +24,18 @@ class MyApp extends StatelessWidget {
         // Notice that the counter didn't reset back to zero; the application
         // is not restarted.
         primarySwatch: Colors.blue,
+        textTheme: TextTheme(
+          headline: TextStyle(fontSize: 36.0, fontWeight: FontWeight.bold),
+          title: TextStyle(fontSize: 24.0),
+          body1: TextStyle(fontSize: 14.0, color: Colors.black),
+          body2: TextStyle(fontSize: 12.0, color: Colors.grey),
+        ),
+      ),
+      home: Scaffold(
+        appBar: AppBar(
+          title: Text('Flutter Movies'),
+        ),
+        body: ListMovies(),
       ),
 
     );
